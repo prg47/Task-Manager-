@@ -62,7 +62,7 @@ export const signIn = async (req,res,next)=>{
             return next(errorHandler(400,"Wrong credentials"));
         }
 
-        const token  = jwt.sign({id: validUser._id},process.env.JWT_SECRET)
+        const token  = jwt.sign({id: validUser._id,role: validUser.role},process.env.JWT_SECRET)
 
         const {password: pass, ...rest} = validUser._doc;
 
