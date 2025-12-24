@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.route.js"
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -24,6 +25,8 @@ app.use(cors({
 
 // middleware for json
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.listen(3000,()=>{
     console.log("server running");
